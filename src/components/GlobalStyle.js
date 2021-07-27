@@ -21,6 +21,15 @@ html, body, #root {
     font-family: "Arial",serif;
     background-color: #000888;
     
+    @media (orientation: landscape) {
+    --button-side-length: 12vh;
+    --display-width: 48vh+3*var(--grid-gap);
+    }
+   @media (orientation: portrait) {
+    --button-side-length: 15vw;
+    --display-width: 60vw+3*var(--grid-gap);
+    }
+    --grid-gap: 3px;
 }
 `;
 
