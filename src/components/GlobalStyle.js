@@ -31,6 +31,11 @@ html, body, #root {
     }
     --grid-gap: 3px;
 }
+
+Button {
+    width: var(--button-side-length);
+    height: var(--button-side-length);
+}
 `;
 
 export default GlobalStyle;

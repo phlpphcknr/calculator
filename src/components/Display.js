@@ -2,9 +2,9 @@ import styled from "styled-components/macro";
 
 export default function Display ({lastEntry, calculation}){
     return (
-        <Output id="display" >
+        <Output id="screen" >
             <DisplayLine id="calculation">{calculation}</DisplayLine>
-            <DisplayLine id="last entry">{lastEntry}</DisplayLine>
+            <DisplayLine id="display">{lastEntry}</DisplayLine>
         </Output>
     )
 }

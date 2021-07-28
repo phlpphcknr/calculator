@@ -1,11 +1,14 @@
 import styled from "styled-components/macro";
 import NumberButton from "./NumberButton";
+import OperatorButton from "./OperatorButton";
+import DecimalButton from "./DecimalButton";
+import EqualsButton from "./EqualsButton";
 
 export default function Keyboard ({lastEntry, setLastEntry, calculation, setCalculation}){
 
         const clearCalculation = () => {
             setLastEntry("0");
-            setCalculation(" ");
+            setCalculation("");
         }
 
         return (
@@ -29,7 +32,12 @@ export default function Keyboard ({lastEntry, setLastEntry, calculation, setCalc
                           setLastEntry={setLastEntry}
                           calculation={calculation}
                           setCalculation={setCalculation}/>
-            <Button id="multiply" >*</Button>
+            <OperatorButton id="multiply"
+                            value={"*"}
+                            lastEntry={lastEntry}
+                            setLastEntry={setLastEntry}
+                            calculation={calculation}
+                            setCalculation={setCalculation}/>
             <NumberButton id={"four"}
                           value={"4"}
                           lastEntry={lastEntry}
@@ -48,7 +56,12 @@ export default function Keyboard ({lastEntry, setLastEntry, calculation, setCalc
                           setLastEntry={setLastEntry}
                           calculation={calculation}
                           setCalculation={setCalculation}/>
-            <Button id="divide" >/</Button>
+            <OperatorButton id="divide"
+                            value={"/"}
+                            lastEntry={lastEntry}
+                            setLastEntry={setLastEntry}
+                            calculation={calculation}
+                            setCalculation={setCalculation}/>
             <NumberButton id={"one"}
                           value={"1"}
                           lastEntry={lastEntry}
@@ -67,16 +80,35 @@ export default function Keyboard ({lastEntry, setLastEntry, calculation, setCalc
                           setLastEntry={setLastEntry}
                           calculation={calculation}
                           setCalculation={setCalculation}/>
-            <Button id="subtract" >-</Button>
+            <OperatorButton id="subtract"
+                            value={"-"}
+                            lastEntry={lastEntry}
+                            setLastEntry={setLastEntry}
+                            calculation={calculation}
+                            setCalculation={setCalculation}/>
             <NumberButton id={"zero"}
                           value={"0"}
                           lastEntry={lastEntry}
                           setLastEntry={setLastEntry}
                           calculation={calculation}
                           setCalculation={setCalculation}/>
-            <Button id="decimal" >.</Button>
-            <Button id="equals" >=</Button>
-            <Button id="add" >+</Button>
+            <DecimalButton id="decimal"
+                           value={"."}
+                           lastEntry={lastEntry}
+                           setLastEntry={setLastEntry}
+                           calculation={calculation}
+                           setCalculation={setCalculation}/>
+            <EqualsButton id="equals"
+                          value={"="}
+                          setLastEntry={setLastEntry}
+                          calculation={calculation}
+                          setCalculation={setCalculation}/>
+            <OperatorButton id="add"
+                            value={"+"}
+                            lastEntry={lastEntry}
+                            setLastEntry={setLastEntry}
+                            calculation={calculation}
+                            setCalculation={setCalculation}/>
         </KeyboardContainer>
     )
 }
@@ -91,9 +123,4 @@ const WideButton = styled.button`
     width: var(--display-width);
     height: var(--button-side-length);
     grid-column: auto / span 4;
-`
-
-const Button = styled.button`
-    width: var(--button-side-length);
-    height: var(--button-side-length);
 `

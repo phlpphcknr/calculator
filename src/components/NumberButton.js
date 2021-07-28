@@ -4,16 +4,19 @@ export default function NumberButton ({lastEntry, setLastEntry, calculation, set
 
     const addInput = (input) => {
 
-        if (calculation === "0") {
+        if (calculation === "0" || calculation.match(/=/)) {
+
             setLastEntry(input);
             setCalculation(input);
+
         } else {
 
             setCalculation(calculation + input);
-            if (lastEntry != "0" || isNaN(lastEntry)) {
-                setLastEntry(lastEntry + input);
-            } else {
+
+            if (lastEntry === "0" || lastEntry.match(/[+\-/*]/)) {
                 setLastEntry(input);
+            } else {
+                setLastEntry(lastEntry + input);
             }
         }
     }
