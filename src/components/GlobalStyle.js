@@ -19,11 +19,11 @@ html, body, #root {
     
     @media (orientation: landscape) {
     --button-side-length: 12vh;
-    --display-width: 48vh+3*var(--grid-gap);
+    --display-width: calc(48vh + 3*var(--grid-gap));
     }
    @media (orientation: portrait) {
     --button-side-length: 15vw;
-    --display-width: 60vw+3*var(--grid-gap);
+    --display-width: calc(60vw + 3*var(--grid-gap));
     }
     --grid-gap: 3px;
 }

@@ -24,4 +24,5 @@ export default function Calculator (){
 
 const CalcFrame = styled.div`
     padding: 3px;
+    max-width: var(--display-width);
 `
