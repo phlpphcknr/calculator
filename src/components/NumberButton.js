@@ -4,19 +4,27 @@ export default function NumberButton ({lastEntry, setLastEntry, calculation, set
 
     const addInput = (input) => {
 
-        if (calculation === "0" || calculation.match(/=/)) {
-
+        if (calculation === "0" || (/=/).test(calculation)) {
             setLastEntry(input);
             setCalculation(input);
 
         } else {
 
-            setCalculation(calculation + input);
-
-            if (lastEntry === "0" || lastEntry.match(/[+\-/*]/)) {
-                setLastEntry(input);
-            } else {
-                setLastEntry(lastEntry + input);
+            switch(lastEntry) {
+                case "0":
+                    setLastEntry(input);
+                    setCalculation(calculation.substring(0,calculation.length-1) + input);
+                    break;
+                case "+":
+                case "-":
+                case "/":
+                case "*":
+                    setLastEntry(input);
+                    setCalculation(calculation + input);
+                    break;
+                default:
+                    setLastEntry(lastEntry + input);
+                    setCalculation(calculation + input);
             }
         }
     }
