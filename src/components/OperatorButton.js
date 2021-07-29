@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import Button from "./ButtonStyle";
 
 export default function OperatorButton ({lastEntry, setLastEntry, calculation, setCalculation, id, value}){
 
@@ -35,8 +35,3 @@ export default function OperatorButton ({lastEntry, setLastEntry, calculation, s
         <Button id={id} value={value} onClick={e => addInput(e.target.value)}>{value}</Button>
     )
 }
-
-const Button = styled.button`
-    width: var(--button-side-length);
-    height: var(--button-side-length);
-`

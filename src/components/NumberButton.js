@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import Button from "./ButtonStyle";
 
 export default function NumberButton ({lastEntry, setLastEntry, calculation, setCalculation, id, value}){
 
@@ -25,8 +25,3 @@ export default function NumberButton ({lastEntry, setLastEntry, calculation, set
         <Button id={id} value={value} onClick={e => addInput(e.target.value)}>{value}</Button>
     )
 }
-
-const Button = styled.button`
-    width: var(--button-side-length);
-    height: var(--button-side-length);
-`

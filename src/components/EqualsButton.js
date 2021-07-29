@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import Button from "./ButtonStyle";
 
 export default function EqualsButton ({setLastEntry, calculation, setCalculation, id, value}){
 
@@ -14,8 +14,3 @@ export default function EqualsButton ({setLastEntry, calculation, setCalculation
         <Button id={id} value={value} onClick={getResult}>{value}</Button>
     )
 }
-
-const Button = styled.button`
-    width: var(--button-side-length);
-    height: var(--button-side-length);
-`
