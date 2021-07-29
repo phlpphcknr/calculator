@@ -1,10 +1,10 @@
-import styled from "styled-components/macro";
-
+import Button from "./ButtonStyle";
+import { evaluate } from 'mathjs';
 export default function EqualsButton ({setLastEntry, calculation, setCalculation, id, value}){
 
     const getResult = () => {
         if (!calculation.match(/=/)) {
-            var result = eval(calculation);
+            const result = evaluate(calculation);
             setLastEntry(result);
             setCalculation(calculation + "=" + result);
         }
@@ -14,8 +14,3 @@ export default function EqualsButton ({setLastEntry, calculation, setCalculation
         <Button id={id} value={value} onClick={getResult}>{value}</Button>
     )
 }
-
-const Button = styled.button`
-    width: var(--button-side-length);
-    height: var(--button-side-length);
-`

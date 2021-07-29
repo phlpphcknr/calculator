@@ -1,22 +1,30 @@
-import styled from "styled-components/macro";
+import Button from "./ButtonStyle";
 
 export default function NumberButton ({lastEntry, setLastEntry, calculation, setCalculation, id, value}){
 
     const addInput = (input) => {
 
-        if (calculation === "0" || calculation.match(/=/)) {
-
+        if (calculation === "0" || (/=/).test(calculation)) {
             setLastEntry(input);
             setCalculation(input);
 
         } else {
 
-            setCalculation(calculation + input);
-
-            if (lastEntry === "0" || lastEntry.match(/[+\-/*]/)) {
-                setLastEntry(input);
-            } else {
-                setLastEntry(lastEntry + input);
+            switch(lastEntry) {
+                case "0":
+                    setLastEntry(input);
+                    setCalculation(calculation.substring(0,calculation.length-1) + input);
+                    break;
+                case "+":
+                case "-":
+                case "/":
+                case "*":
+                    setLastEntry(input);
+                    setCalculation(calculation + input);
+                    break;
+                default:
+                    setLastEntry(lastEntry + input);
+                    setCalculation(calculation + input);
             }
         }
     }
@@ -25,8 +33,3 @@ export default function NumberButton ({lastEntry, setLastEntry, calculation, set
         <Button id={id} value={value} onClick={e => addInput(e.target.value)}>{value}</Button>
     )
 }
-
-const Button = styled.button`
-    width: var(--button-side-length);
-    height: var(--button-side-length);
-`
